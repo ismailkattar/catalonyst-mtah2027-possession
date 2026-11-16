@@ -53,6 +53,12 @@ data/*
 # insurance against it being recreated in here by habit.
 organizers/
 
+# -- Catalonyst pipeline outputs (data-derived: never published) --------------------------------
+cache/
+submissions/
+*.npz
+.ipynb_checkpoints/
+
 # -- editors and build artifacts ---------------------------------------------------------------
 .idea/
 .vscode/

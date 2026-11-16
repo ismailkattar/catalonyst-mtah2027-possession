@@ -1,3 +1,19 @@
+> ## Team Catalonyst: our submission
+>
+> This repository is the organisers' challenge repository (MIT, see `LICENSE`) with our pipeline
+> added in **[`possession/`](possession/)**. Everything outside `possession/`, `Catalonyst.md` and
+> this note is the organisers' material, unchanged.
+>
+> - **Technical document, including how to reproduce:** [`Catalonyst.md`](Catalonyst.md)
+> - **Regenerate the submitted file** (after `pip install -r possession/requirements.txt` and
+>   unpacking the data bundle into `data/tactical/`):
+>   `python possession/run.py --version v2 --name Catalonyst` → `submissions/Catalonyst.csv`
+> - **Where the thresholds come from:** [`possession/notebooks/threshold_analysis.ipynb`](possession/notebooks/threshold_analysis.ipynb)
+>
+> No match data, ground truth or frame-level output is committed.
+
+---
+
 # More than a Hack 2027 — Phase 1: Ball Possession
 
 **Organised by [Metrica Sports](https://metrica-sports.com), [FC Barcelona](https://www.fcbarcelona.com)

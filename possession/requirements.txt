@@ -1,0 +1,4 @@
+# Catalonyst possession pipeline -- exact versions the submitted CSV was produced with.
+# Python 3.14.0 (any CPython >= 3.11 that these wheels support should give the same file).
+numpy==2.4.4
+pandas==3.0.3
