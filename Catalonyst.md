@@ -207,8 +207,9 @@ The same data bundle and this repository give **the same file, byte for byte**. 
 checked by SHA-256 below.
 
 **Requirements:** Python ≥ 3.11 (produced with CPython 3.14.0 on Windows 11), plus the pinned
-`numpy==2.4.4` and `pandas==3.0.3`. No GPU is needed. A run takes about 1–2 minutes (parsing the
-196 MB tracking file dominates).
+`numpy==2.4.4` and `pandas==3.0.3`. No GPU is needed. A first run takes about 15–60 s on a laptop (parsing
+the 196 MB tracking file dominates). We checked the steps below from a fresh clone of this
+repository in a new virtual environment: both checksums matched.
 
 ```bash
 # 1. get the code
