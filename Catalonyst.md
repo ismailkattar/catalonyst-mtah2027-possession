@@ -111,6 +111,12 @@ Public 5-minute window. This is a **pipeline sanity check only**: v2 was frozen 
 computed, and nothing was selected or tuned on it. It holds 17 possessions, so it is far too small
 to rank variants, and EVALUATION.md shows it can order the baselines the wrong way round.
 
+*Disclosure.* When we ran the v1 pipeline check on this window, its report showed that only 2 of
+the 20 public transitions fell within ±1 s. That observation is one reason we looked at boundary
+timing, and it led to change 4 (snap to touches). The rule itself comes from the definition in
+CHALLENGE.md. Its only parameter (±2 s search window) is a prior that was never evaluated against
+the window, and no other v2 change was informed by it.
+
 | | macroF1 | spellF1 | possessions (GT 17) | mean duration (GT 14.2 s) |
 |---|---|---|---|---|
 | baseline_smooth50 (organisers' floor) | 0.621 | 0.326 | 26 | 10.8 s |
@@ -208,8 +214,7 @@ checked by SHA-256 below.
 
 **Requirements:** Python ≥ 3.11 (produced with CPython 3.14.0 on Windows 11), plus the pinned
 `numpy==2.4.4` and `pandas==3.0.3`. No GPU is needed. A first run takes about 15–60 s on a laptop (parsing
-the 196 MB tracking file dominates). We checked the steps below from a fresh clone of this
-repository in a new virtual environment: both checksums matched.
+the 196 MB tracking file dominates).
 
 ```bash
 # 1. get the code
@@ -242,8 +247,12 @@ Expected checksums (`sha256sum submissions/*.csv`, or `Get-FileHash` on Windows)
 
 | file | SHA-256 |
 |---|---|
-| `submissions/Catalonyst.csv` (= `v2.csv`) | `7be418e044c6356f85b3cf17b321dca8f57f652fdd70a5eb0dd4c613daca560a` |
-| `submissions/v1.csv` | `a185b8b826d0ce75c4d647b4da5129f82eac695a2296fb26dc8371989462aa6b` |
+| `submissions/Catalonyst.csv` (= `v2.csv`) | `9fe4283781134f062535b762b6ce05a537333b6e35d80e92336f94403b29585e` |
+| `submissions/v1.csv` | `7d2635e52d95d3f6cd322af23d2541e4ff91c1eb8dbaa0705aa4290a2bc8181c` |
+
+The CSV is always written with `\n` line endings, so these hashes hold on every operating system.
+They were checked from a fresh clone in a new virtual environment on **Windows 11 / Python 3.14.0**
+and on **Ubuntu 24.04 (WSL) / Python 3.12.3**, both with numpy 2.4.4 and pandas 3.0.3.
 
 Expected console summary: v2 `graded share: H 33.3% A 19.1% D 47.7%`; v1 `H 28.6% A 16.3% D 55.1%`.
 

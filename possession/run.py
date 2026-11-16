@@ -16,12 +16,21 @@ import sys
 import numpy as np
 
 from common import ORG_REPO, SUBMISSION_DIR, games
-import baseline
 
 import config
 import features
 import model
 import parse_atd
+
+
+def write_submission(path, labels):
+    """frame,label CSV with '\\n' line endings on every OS, so the file is byte-identical whether it
+    is regenerated on Windows, Linux or macOS (text mode would write '\\r\\n' on Windows)."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="\n", encoding="ascii") as handle:
+        handle.write("frame,label\n")
+        handle.writelines("{},{}\n".format(frame, label) for frame, label in enumerate(labels))
+    return path
 
 
 def main():
@@ -37,7 +46,7 @@ def main():
     feats = features.build(atd)
     labels = model.decode(feats, games.half_video_blocks(games.GAME))
 
-    path = baseline.write_submission(os.path.join(SUBMISSION_DIR, args.name + ".csv"), labels)
+    path = write_submission(os.path.join(SUBMISSION_DIR, args.name + ".csv"), labels)
     shutil.copy(path, os.path.join(ORG_REPO, "evaluation", "results", args.name + ".csv"))
 
     graded = labels != "X"
