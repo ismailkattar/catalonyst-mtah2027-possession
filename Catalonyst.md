@@ -3,6 +3,9 @@
 **Team:** Catalonyst · **Submission file:** `Catalonyst.csv` (= pipeline version **v2**) ·
 **Code:** this repository, folder `possession/`
 
+> **Reproduction:** see [section 6. Reproduction](#6-reproduction) for the exact commands and the
+> expected checksums.
+
 The method has no learned model and uses no labels. It turns the provided tracking, homography and
 Smart Tagging into per-frame evidence of "dead ball" and of "which team has it". It then decodes
 the whole match with one three-state Viterbi over {H, A, D}, in which a label may change only when

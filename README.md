@@ -1,5 +1,10 @@
 > ## Team Catalonyst: our submission
 >
+> **Reproduction:** step-by-step instructions and the expected SHA-256 checksums are in
+> section 6 of the technical document.
+>
+> [![Go to reproduction steps](https://img.shields.io/badge/%E2%96%B6%20Go%20to-Reproduction%20steps-2ea44f?style=for-the-badge)](Catalonyst.md#6-reproduction)
+>
 > This repository is the organisers' challenge repository (MIT, see `LICENSE`) with our pipeline
 > added in **[`possession/`](possession/)**. Everything outside `possession/`, `Catalonyst.md` and
 > this note is the organisers' material, unchanged.
